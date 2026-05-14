@@ -1,13 +1,14 @@
 .die-container {
-  width: 400px;
-  height: 400px;
-  gap: 10px;
-  background-color: #F5F5F5;
-  border-radius: 5px;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 400px;
+    height: 400px;
+    gap: 10px;
+    background-color: #F5F5F5;
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 }
 .die{
     height: 50px;
@@ -16,7 +17,7 @@
     border-radius: 10px;
     border: none;
     background-color: white;
-    font-family: Inter, sans-serif;
+    font-family: Karla, sans-serif;
     font-size: 1.75rem;
     font-weight: bold;
     cursor: pointer;

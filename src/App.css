@@ -1,16 +1,17 @@
-.first-row{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
+.dice-box{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 15px;
 }
-.second-row{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-.box{
-  
+
+.roll-dice{
+  height: 50px;
+  width: 100px;
+  border: none;
+  border-radius: 6px;
+  background-color: #5035FF;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
