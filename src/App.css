@@ -1,6 +1,16 @@
-main {
-  width: 400px;
-  height: 400px;
-  background-color: #F5F5F5;
-  border-radius: 5px;
+.first-row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.second-row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.box{
+  
 }
