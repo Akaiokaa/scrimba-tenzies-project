@@ -2,7 +2,7 @@ import './Die.css'
 
 function Die(props) {
     return(
-        <button className='die'>{props.value}</button>
+        <button className='die' style={props.held}>{props.value}</button>
     )
 }
 export default Die;
