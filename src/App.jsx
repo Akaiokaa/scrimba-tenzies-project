@@ -4,14 +4,6 @@ import {useState} from 'react'
 function App() {
   const [dice, setDice] = useState(generateAllNewDice)
 
-  const isHeld = {
-    "background-color": "#59E391"
-  }
-
-  const notHeld = {
-    "background-color": "#FFFFFF"
-  }
-
   function generateAllNewDice(){
     const newDice = []
 
@@ -27,7 +19,15 @@ function App() {
     return newDice
   }
 
-  console.log(dice)
+  function hold(id){
+    setDice(oldDice => {
+      return oldDice.map(die => {
+        return die.id === id ?
+          {...die, isHeld: !die.isHeld} :
+          die
+      })
+    })
+  }
 
   function rollDice(){
     setDice(generateAllNewDice)
@@ -37,7 +37,16 @@ function App() {
     <>
     <main className='die-container'>
       <div className='dice-box'>
-        { dice.map((diceObj) => (<Die key={diceObj.id} value={diceObj.randomNumber} held = { diceObj.isHeld ? isHeld : notHeld} />)) }
+        { dice.map((diceObj) => (
+          <Die 
+            key={diceObj.id} 
+            value={diceObj.randomNumber} 
+            isHeld={diceObj.isHeld}
+            hold={hold}
+            id={diceObj.id}
+          />
+        )) 
+        }
       </div>
       <button className="roll-dice" onClick={rollDice}>Roll</button>
     </main>
