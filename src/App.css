@@ -5,6 +5,11 @@
   gap: 15px;
 }
 
+.title {
+  font-size: 40px;
+  margin: 0;
+}
+
 .roll-dice{
   height: 50px;
   width: 100px;
