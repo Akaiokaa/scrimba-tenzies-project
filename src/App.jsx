@@ -4,6 +4,15 @@ import {useState} from 'react'
 function App() {
   const [dice, setDice] = useState(generateAllNewDice)
 
+  let gameWon = false;
+
+  if(
+    dice.every(die => die.isHeld) &&
+    dice.every(die => die.randomNumber === dice[0].randomNumber)
+  ) {
+    gameWon = !gameWon
+  }
+  
   function generateAllNewDice(){
     const newDice = []
 
@@ -19,14 +28,21 @@ function App() {
     return newDice
   }
 
-  function hold(id){
-    setDice(oldDice => {
-      return oldDice.map(die => {
-        return die.id === id ?
-          {...die, isHeld: !die.isHeld} :
-          die
-      })
-    })
+  // function hold(id){
+  //   setDice(oldDice => {
+  //     return oldDice.map(die => {
+  //       return die.id === id ?
+  //         {...die, isHeld : !die.isHeld} :
+  //         die
+  //     })
+  //   })
+  // }
+  function hold(id) {
+    setDice(oldDice => oldDice.map(die =>
+      die.id === id ?
+        { ...die, isHeld: !die.isHeld } :
+        die
+    ))
   }
 
   function rollDice(){
@@ -54,7 +70,8 @@ function App() {
         )) 
         }
       </div>
-      <button className="roll-dice" onClick={rollDice}>Roll</button>
+      { gameWon ? <button className="roll-dice">New game</button> : <button className="roll-dice" onClick={rollDice}>Roll</button> }
+      
     </main>
     </>
   )
