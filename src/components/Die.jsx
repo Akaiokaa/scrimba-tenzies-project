@@ -6,8 +6,13 @@ function Die(props) {
     }
 
     return(
-        <button className='die' 
-            style={isHeld} onClick={() => props.hold(props.id)}>{props.value}
+        <button 
+            className='die' 
+            style={isHeld} onClick={() => props.hold(props.id)}
+            aria-label={`Die with value ${props.value}, 
+            ${props.isHeld ? "held" : "not held"}`}
+        >
+            {props.value}
         </button>
     )
 }
